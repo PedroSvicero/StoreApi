@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup>
+    <!-- Evita problemas intermitentes do compilador compartilhado em ambientes restritos. -->
+    <UseSharedCompilation>false</UseSharedCompilation>
+    <!-- Mantem o build dos projetos referenciados de forma previsivel. -->
+    <BuildInParallel>false</BuildInParallel>
+  </PropertyGroup>
+</Project>

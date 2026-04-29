@@ -1,0 +1,196 @@
+/*
+ * Tema visual da documentacao.
+ * A ideia e deixar o Swagger com cara de guia didatico, e nao apenas uma tela tecnica padrao.
+ */
+
+body {
+    background:
+        radial-gradient(circle at top left, #ffe9c7 0, transparent 26%),
+        linear-gradient(180deg, #fbf7ef 0%, #f1ebe2 100%);
+}
+
+.swagger-ui {
+    color: #1f2937;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.swagger-ui .topbar {
+    background: linear-gradient(135deg, #12343b 0%, #1f5c61 100%);
+    border-bottom: 4px solid #f59e0b;
+    padding: 14px 0;
+}
+
+.swagger-ui .topbar-wrapper img {
+    display: none;
+}
+
+.swagger-ui .topbar-wrapper .download-url-wrapper {
+    display: none;
+}
+
+.fiap-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: #f8fafc;
+}
+
+.fiap-brand__title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.fiap-brand__subtitle {
+    color: #dbeafe;
+    font-size: 0.9rem;
+}
+
+.fiap-hero {
+    margin: 24px auto 12px;
+    max-width: 1460px;
+    padding: 0 20px;
+}
+
+.fiap-hero__panel {
+    background: linear-gradient(135deg, rgba(18, 52, 59, 0.96), rgba(28, 81, 86, 0.96));
+    border-radius: 24px;
+    color: #f8fafc;
+    box-shadow: 0 18px 40px rgba(18, 52, 59, 0.18);
+    overflow: hidden;
+    position: relative;
+}
+
+.fiap-hero__panel::after {
+    background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.26));
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.fiap-hero__content {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 1.7fr 1fr;
+    padding: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.fiap-hero h1 {
+    font-size: 2rem;
+    line-height: 1.1;
+    margin: 0 0 10px;
+}
+
+.fiap-hero p {
+    color: #d7e6ea;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.fiap-hero__steps,
+.fiap-hero__notes {
+    display: grid;
+    gap: 12px;
+}
+
+.fiap-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 14px 16px;
+}
+
+.fiap-card strong {
+    color: #fcd34d;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.swagger-ui .information-container.wrapper {
+    background: transparent;
+    padding-top: 6px;
+}
+
+.swagger-ui .info {
+    margin: 0 auto 18px;
+    max-width: 1460px;
+    padding: 0 20px;
+}
+
+.swagger-ui .info .title {
+    color: #12343b;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.swagger-ui .scheme-container {
+    background: #fff9ef;
+    border: 1px solid #f5d38b;
+    box-shadow: none;
+}
+
+.swagger-ui .opblock-tag {
+    background: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid #e5e7eb;
+    color: #12343b;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.swagger-ui .opblock {
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+}
+
+.swagger-ui .opblock .opblock-summary {
+    align-items: center;
+}
+
+.swagger-ui .opblock.opblock-get {
+    border-color: #0f766e;
+}
+
+.swagger-ui .opblock.opblock-post {
+    border-color: #b45309;
+}
+
+.swagger-ui .opblock.opblock-put {
+    border-color: #1d4ed8;
+}
+
+.swagger-ui .opblock.opblock-delete {
+    border-color: #b91c1c;
+}
+
+.swagger-ui .btn.authorize {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.swagger-ui .btn.authorize svg {
+    fill: #1f2937;
+}
+
+.swagger-ui .markdown code,
+.swagger-ui code {
+    background: #f3f4f6;
+    border-radius: 6px;
+    color: #0f172a;
+    padding: 2px 6px;
+}
+
+@media (max-width: 900px) {
+    .fiap-hero__content {
+        grid-template-columns: 1fr;
+    }
+
+    .swagger-ui .info .title {
+        font-size: 1.6rem;
+    }
+}

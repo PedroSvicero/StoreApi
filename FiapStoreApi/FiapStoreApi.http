@@ -1,0 +1,48 @@
+@FiapStoreApi_HostAddress = http://localhost:5042
+@adminEmail = admin@fiapstore.com
+@adminSenha = 123456
+
+# Este arquivo ajuda a testar a API manualmente.
+# A ideia e seguir a ordem abaixo:
+# 1. Registrar um usuario
+# 2. Fazer login para obter o token
+# 3. Usar o token nas rotas protegidas
+
+### Registrar usuario admin
+POST {{FiapStoreApi_HostAddress}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "{{adminEmail}}",
+  "senha": "{{adminSenha}}",
+  "role": "Admin"
+}
+
+### Login
+POST {{FiapStoreApi_HostAddress}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{adminEmail}}",
+  "senha": "{{adminSenha}}"
+}
+
+### Listar clientes
+# Depois do login, copie o token retornado e cole abaixo.
+GET {{FiapStoreApi_HostAddress}}/cliente
+Authorization: Bearer COLE_O_TOKEN_AQUI
+
+### Criar cliente
+POST {{FiapStoreApi_HostAddress}}/cliente
+Authorization: Bearer COLE_O_TOKEN_AQUI
+Content-Type: application/json
+
+{
+  "nome": "Cliente Exemplo",
+  "cpf": "12345678901",
+  "dataNascimento": "1995-08-10T00:00:00"
+}
+
+### Listar livros
+GET {{FiapStoreApi_HostAddress}}/livro
+Authorization: Bearer COLE_O_TOKEN_AQUI

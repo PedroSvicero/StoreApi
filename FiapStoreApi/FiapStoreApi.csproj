@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    
+
+    <!-- Scalar: UI moderna que substitui o Swagger UI no .NET 10 -->
+    <PackageReference Include="Scalar.AspNetCore" Version="2.14.1" />
+
+    <!-- JWT -->
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.17.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.17.0" />
+
+    <!-- EF Core -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="10.0.0" />
+
+    <!--
+      Swashbuckle 10.0.0 — lançado para .NET 10.
+      Usa Microsoft.OpenApi 2.x internamente, mesma versão do .NET 10.
+      Por isso OpenApiReference, OpenApiSecurityScheme etc funcionam
+      sem conflito e sem necessidade de aliases.
+    -->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.0" />
+  </ItemGroup>
+
+  <Target Name="CopyReferencedXmlDocs" AfterTargets="Build">
+    <!-- Copia a documentacao XML do projeto Core para a pasta de saida da API.
+         Isso permite que o Swagger exiba descricoes dos DTOs e modelos compartilhados. -->
+    <Copy
+      SourceFiles="..\Core\bin\$(Configuration)\$(TargetFramework)\Core.xml"
+      DestinationFolder="$(OutDir)"
+      Condition="Exists('..\Core\bin\$(Configuration)\$(TargetFramework)\Core.xml')" />
+  </Target>
+</Project>
